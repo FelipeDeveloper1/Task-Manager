@@ -1,6 +1,7 @@
 * {
     padding: 0px;
     margin: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -60,4 +61,21 @@ header {
     color: white;
     font-size: clamp(1rem, -1.5rem + 2vw, 1.2rem);
     cursor: pointer;
+}
+
+.task_place {
+    width: 100%;
+    height: 90vh;
+}
+
+.status {
+    display: flex;
+}
+
+.status>div:nth-child(n+2) {
+    margin-left: 15vw;
+}
+
+.status_name>p {
+    color: white;
 }
