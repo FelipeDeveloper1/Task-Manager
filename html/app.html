@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/modal.css">
     <title>Task Management</title>
 </head>
 
@@ -14,6 +15,10 @@
         <div class="content_header">
             <div class="logo">
                 <p>NOTES</p>
+            </div>
+            <div class="quantidade">
+                <span>All boards</span>
+                <span>()</span>
             </div>
         </div>
     </header>
@@ -24,7 +29,7 @@
                     <p>Platform Launch</p>
                 </div>
                 <div class="add">
-                    <input type="button" value="+Add New Task">
+                    <input type="button" value="+Add New Task" class="new">
                 </div>
             </div>
         </div>
@@ -33,21 +38,57 @@
                 <div class="todo">
                     <div class="status_name">
                         <p>TODO</p>
+                        <span class="contagem">(0)</span>
                     </div>
                 </div>
                 <div class="doing">
                     <div class="status_name">
                         <p>DOING</p>
+                        <span class="contagem">(0)</span>
                     </div>
                 </div>
                 <div class="done">
                     <div class="status_name">
                         <p>DONE</p>
+                        <span class="contagem">(0)</span>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="modal">
+            <div class="topo">
+                <p>Add new task</p>
+                <div>
+                    <p class="close">X</p>
+                </div>
+            </div>
+            <div class="modal_title">
+                <p>Title</p>
+                <input type="text" name="" id="" class="default">
+            </div>
+            <div class="description">
+                <p>Description</p>
+                <input type="text" name="" id="" class="default">
+            </div>
+            <div class="subtasks">
+                <p>Subtasks</p>
+                <input type="text" name="" id="" class="default">
+                <input type="text" name="" id="" class="default">
+            </div>
+            <input type="button" value="+Add new Subtask" class="newTask">
+            <div class="modal_status">
+                <p>status</p>
+                <select name="" id="">
+                    <option value="todo">Todo</option>
+                    <option value="doing">Doing</option>
+                    <option value="done">Done</option>
+                </select>
+            </div>
+            <input type="button" value="create task" class="newTask">
+
+        </div>
     </main>
+    <script src="../js/code.js"></script>
 </body>
 
 </html>
