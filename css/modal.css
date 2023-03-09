@@ -7,11 +7,23 @@
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 28vw;
-    height: 75vh;
+    width: 23vw;
+    height: auto;
+    padding: 2%;
     background-color: #2C2C38;
     border-radius: 10px;
     box-shadow: 2px 2px 5px 2px black;
+    animation: animate;
+    animation-duration: 400ms;
+}
+
+@keyframes animate {
+    from {
+        opacity: 1;
+    }
+    from {
+        opacity: 0;
+    }
 }
 
 .topo {
@@ -29,6 +41,7 @@
 .modal_title {
     width: 80%;
     color: white;
+    margin-bottom: 2vh;
 }
 
 .modal_title>input {
@@ -60,17 +73,20 @@
     flex-direction: column;
     color: white;
     width: 80%;
+    padding-top: 1vh;
 }
 
 .subtasks>input {
     height: 4vh;
-    margin-top: 2vh;
+    margin-top: 1vh;
     width: 90%;
+    margin-bottom: 0.3vh;
 }
 
 .modal_status {
     color: white;
     width: 80%;
+    padding-top: 2vh;
 }
 
 .modal_status>select {
@@ -89,6 +105,16 @@
     border-radius: 20px;
     border: 1px solid #746FC9;
     color: #4f4ab3;
+    margin-top: 2vh;
+}
+
+.newSubTask {
+    width: 80%;
+    height: 5vh;
+    border-radius: 20px;
+    border: 1px solid #746FC9;
+    color: #4f4ab3;
+    margin-top: 1vh;
 }
 
 .active {

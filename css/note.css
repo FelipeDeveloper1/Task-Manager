@@ -1,0 +1,14 @@
+.note {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    background-color: #2C2C38;
+    height: 12vh;
+    margin-top: 1vh;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    color: white;
+    font-size: clamp(1rem, -1.5rem + 2.1vw, 3rem);
+}

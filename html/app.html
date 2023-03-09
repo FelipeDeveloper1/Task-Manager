@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/note.css">
     <title>Task Management</title>
 </head>
 
@@ -64,21 +65,20 @@
             </div>
             <div class="modal_title">
                 <p>Title</p>
-                <input type="text" name="" id="" class="default">
+                <input type="text" name="" class="default" id="title" required>
             </div>
             <div class="description">
                 <p>Description</p>
-                <input type="text" name="" id="" class="default">
+                <input type="text" name="" class="default" id="description" required>
             </div>
             <div class="subtasks">
                 <p>Subtasks</p>
-                <input type="text" name="" id="" class="default">
-                <input type="text" name="" id="" class="default">
+                <input type="text" name="" class="default subtask">
             </div>
-            <input type="button" value="+Add new Subtask" class="newTask">
+            <input type="button" value="+Add new Subtask" class="newSubTask">
             <div class="modal_status">
                 <p>status</p>
-                <select name="" id="">
+                <select name="" class="role">
                     <option value="todo">Todo</option>
                     <option value="doing">Doing</option>
                     <option value="done">Done</option>
@@ -89,6 +89,7 @@
         </div>
     </main>
     <script src="../js/code.js"></script>
+    <script src="../js/insertTask.js"></script>
 </body>
 
 </html>
