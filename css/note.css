@@ -1,7 +1,7 @@
 .note {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
     width: 90%;
     background-color: #2C2C38;
     height: 12vh;
@@ -11,4 +11,13 @@
     border-radius: 10px;
     color: white;
     font-size: clamp(1rem, -1.5rem + 2.1vw, 3rem);
+}
+
+.note>p {
+    margin-left: 1vw;
+}
+
+.note>p:nth-child(2) {
+    font-size: small;
+    opacity: 0.5;
 }
