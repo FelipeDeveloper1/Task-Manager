@@ -22,12 +22,24 @@ class InsertTask {
         this.CreateInsertNote(local)
     }
     Addsubtask = () => {
+
+        // criando os elemenetos
         const newSub = document.createElement("input")
+        const subTaskLocale = document.querySelector(".subtasks")
+        const subTaskPlace = document.createElement("div")
+        const deleteSub = document.createElement("p")
+
+        // setando seus atributos
         newSub.classList.add("default", "subtask")
         newSub.type = "text"
-        const subTaskLocale = document.querySelector(".subtasks")
-        subTaskLocale.insertAdjacentElement("beforeend", newSub)
+        subTaskPlace.classList.add("sub_place")
+        deleteSub.classList.add("deleta_sub")
+        deleteSub.innerText = "X"
 
+        // adicionando nos seus respectivos lugares
+        subTaskPlace.insertAdjacentElement("beforeend", newSub)
+        subTaskPlace.insertAdjacentElement("beforeend", deleteSub)
+        subTaskLocale.insertAdjacentElement("beforeend", subTaskPlace)
     }
     CreateInsertNote = (local) => {
         const note = document.createElement('div')

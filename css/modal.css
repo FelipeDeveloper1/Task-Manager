@@ -76,11 +76,21 @@
     padding-top: 1vh;
 }
 
-.subtasks>input {
+.sub_place {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sub_place>input {
     height: 4vh;
     margin-top: 1vh;
     width: 90%;
     margin-bottom: 0.3vh;
+}
+
+.deleta_sub {
+    cursor: pointer;
 }
 
 .modal_status {
