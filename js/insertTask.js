@@ -5,6 +5,7 @@ class InsertTask {
         this.role = document.querySelector(role)
         this.addSubTask = document.querySelector(addSubTask)
         this.modal = document.querySelector(modal)
+
     }
     click = () => {
         this.set.addEventListener('click', () => {
@@ -13,21 +14,23 @@ class InsertTask {
         })
         this.addSubTask.addEventListener('click', () => {
             this.Addsubtask()
+
         })
 
+
     }
+
     setRole = () => {
         const role = this.role.options[this.role.selectedIndex].value
         const local = document.querySelector(`.${role}`)
         this.CreateInsertNote(local)
     }
     Addsubtask = () => {
-
         // criando os elemenetos
         const newSub = document.createElement("input")
-        const subTaskLocale = document.querySelector(".subtasks")
         const subTaskPlace = document.createElement("div")
         const deleteSub = document.createElement("p")
+        const subTaskLocale = document.querySelector(".subtasks")
 
         // setando seus atributos
         newSub.classList.add("default", "subtask")
@@ -40,13 +43,20 @@ class InsertTask {
         subTaskPlace.insertAdjacentElement("beforeend", newSub)
         subTaskPlace.insertAdjacentElement("beforeend", deleteSub)
         subTaskLocale.insertAdjacentElement("beforeend", subTaskPlace)
+
+
     }
+    deleteSubTask = () => {
+
+    }
+
     CreateInsertNote = (local) => {
         const note = document.createElement('div')
         note.classList = "note"
         local.insertAdjacentElement("beforeend", note)
         this.SetInNote(note)
     }
+
     SetInNote = (note) => {
         // adicionando o titulo na nota
         let NoteTitle = document.createElement('p')
