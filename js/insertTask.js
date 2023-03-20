@@ -5,6 +5,8 @@ class InsertTask {
         this.role = document.querySelector(role)
         this.addSubTask = document.querySelector(addSubTask)
         this.modal = document.querySelector(modal)
+        this.closeSub = []
+
 
     }
     click = () => {
@@ -15,9 +17,13 @@ class InsertTask {
         this.addSubTask.addEventListener('click', () => {
             this.Addsubtask()
 
+
+            this.closeSub.forEach((value, index) => {
+                value.addEventListener('click', () => {
+                    this.deleteSubTask(index)
+                })
+            })
         })
-
-
     }
 
     setRole = () => {
@@ -32,6 +38,7 @@ class InsertTask {
         const deleteSub = document.createElement("p")
         const subTaskLocale = document.querySelector(".subtasks")
 
+
         // setando seus atributos
         newSub.classList.add("default", "subtask")
         newSub.type = "text"
@@ -44,9 +51,14 @@ class InsertTask {
         subTaskPlace.insertAdjacentElement("beforeend", deleteSub)
         subTaskLocale.insertAdjacentElement("beforeend", subTaskPlace)
 
+        // adicionando a contagem de exclusão 
+        this.quantiSubTask = document.querySelectorAll('.sub_place')
+        this.closeSub = document.querySelectorAll('.deleta_sub')
 
     }
-    deleteSubTask = () => {
+    deleteSubTask = (valor) => {
+        this.quantiSubTask[valor].remove()
+
 
     }
 
