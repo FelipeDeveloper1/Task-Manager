@@ -17,6 +17,10 @@
     margin-left: 1vw;
 }
 
+.id {
+    color: #2C2C38;
+}
+
 .note>p:nth-child(2) {
     font-size: small;
     opacity: 0.5;

@@ -6,6 +6,8 @@ class InsertTask {
         this.addSubTask = document.querySelector(addSubTask)
         this.modal = document.querySelector(modal)
         this.closeSub = []
+        this.allData = []
+        this.ObjectNote = {}
 
 
     }
@@ -24,13 +26,19 @@ class InsertTask {
                 })
             })
         })
+
     }
 
+    // setar o note em sua posição no documento 
+
     setRole = () => {
-        const role = this.role.options[this.role.selectedIndex].value
-        const local = document.querySelector(`.${role}`)
+        this.ObjectNote.role = this.role.options[this.role.selectedIndex].value
+        const local = document.querySelector(`.${this.ObjectNote.role}`)
         this.CreateInsertNote(local)
     }
+
+    // criando as subtasks
+
     Addsubtask = () => {
         // criando os elemenetos
         const newSub = document.createElement("input")
@@ -56,32 +64,44 @@ class InsertTask {
         this.closeSub = document.querySelectorAll('.deleta_sub')
 
     }
+
+    // deletnado as substasks  
+
     deleteSubTask = (valor) => {
         this.quantiSubTask[valor].remove()
-
 
     }
 
     CreateInsertNote = (local) => {
         const note = document.createElement('div')
         note.classList = "note"
+
         local.insertAdjacentElement("beforeend", note)
         this.SetInNote(note)
     }
 
     SetInNote = (note) => {
+        // criando o objeto da nota 
+        this.ObjectNote.title = document.querySelector("#title").value
+        console.log(this.ObjectNote)
+
         // adicionando o titulo na nota
         let NoteTitle = document.createElement('p')
-        NoteTitle.textContent = document.querySelector("#title").value
+        NoteTitle.textContent = this.ObjectNote.title
         note.insertAdjacentElement("beforeend", NoteTitle)
+
+        // criando o ID na nota/note
+        let noteId = document.createElement('p')
+        noteId.value = Math.random().toFixed(2)
+        this.ObjectNote.id = noteId.value
+
 
         // adicionando a quantidade de subtask na nota
         let NoteSubTask = document.createElement('p')
-        let SubtaskCount = document.querySelectorAll(".subtask").length
-        NoteSubTask.textContent = `0 de ${SubtaskCount} subtask`
+        this.ObjectNote.subtaskCount = document.querySelectorAll(".subtask").length
+        NoteSubTask.textContent = `0 de ${this.ObjectNote.subtaskCount} subtask`
         note.insertAdjacentElement("beforeend", NoteSubTask)
     }
-
 
     start = () => {
         this.click()
