@@ -9,12 +9,14 @@ class InsertTask {
         this.allData = []
         this.ObjectNote = {}
 
-
     }
     click = () => {
         this.set.addEventListener('click', () => {
             this.setRole()
+            this.allData += JSON.stringify(this.ObjectNote)
+            console.log(this.allData)
             this.modal.classList.remove('active')
+
         })
         this.addSubTask.addEventListener('click', () => {
             this.Addsubtask()
@@ -81,19 +83,22 @@ class InsertTask {
     }
 
     SetInNote = (note) => {
-        // criando o objeto da nota 
+        // criando o ID na nota/note
+        let noteId = document.createElement('p')
+        noteId.value = Math.random().toFixed(2)
+            // criando o objeto da nota 
         this.ObjectNote.title = document.querySelector("#title").value
-        console.log(this.ObjectNote)
 
         // adicionando o titulo na nota
         let NoteTitle = document.createElement('p')
         NoteTitle.textContent = this.ObjectNote.title
         note.insertAdjacentElement("beforeend", NoteTitle)
 
-        // criando o ID na nota/note
-        let noteId = document.createElement('p')
-        noteId.value = Math.random().toFixed(2)
+
+        noteId.innerText = noteId.value
+        noteId.classList = "id"
         this.ObjectNote.id = noteId.value
+        note.insertAdjacentElement("beforeend", noteId)
 
 
         // adicionando a quantidade de subtask na nota
@@ -101,10 +106,13 @@ class InsertTask {
         this.ObjectNote.subtaskCount = document.querySelectorAll(".subtask").length
         NoteSubTask.textContent = `0 de ${this.ObjectNote.subtaskCount} subtask`
         note.insertAdjacentElement("beforeend", NoteSubTask)
+
     }
 
     start = () => {
         this.click()
+
+
     }
 
 }

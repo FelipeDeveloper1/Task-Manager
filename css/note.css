@@ -18,7 +18,7 @@
 }
 
 .id {
-    color: #2C2C38;
+    display: none;
 }
 
 .note>p:nth-child(2) {
