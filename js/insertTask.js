@@ -5,10 +5,13 @@ class InsertTask {
         this.role = document.querySelector(role)
         this.addSubTask = document.querySelector(addSubTask)
         this.modal = document.querySelector(modal)
-        this.closeSub = []
         this.subtaskValue = []
+        this.closeSub = []
         this.allData = []
         this.noteObjectPublic = {}
+        this.subtaskValue = document.querySelectorAll(".subtask")
+
+
 
 
     }
@@ -20,13 +23,12 @@ class InsertTask {
         })
         this.addSubTask.addEventListener('click', () => {
             this.Addsubtask()
-
-
             this.closeSub.forEach((value, index) => {
                 value.addEventListener('click', () => {
                     this.deleteSubTask(index)
                 })
             })
+
         })
 
     }
@@ -65,15 +67,27 @@ class InsertTask {
         // adicionando a contagem de exclusão 
         this.quantiSubTask = document.querySelectorAll('.sub_place')
         this.closeSub = document.querySelectorAll('.deleta_sub')
+
+        // pegando os valores da subtask
         this.subtaskValue = document.querySelectorAll(".subtask")
 
 
+    }
+
+    // pegando valores da subtask 
+
+    GetSubtaskValue = () => {
+        this.noteObjectPublic.subtaskValue = []
+        this.subtaskValue.forEach((value) => {
+            this.noteObjectPublic.subtaskValue.push(value.value)
+        })
     }
 
     // deletnado as substasks  
 
     deleteSubTask = (valor) => {
         this.quantiSubTask[valor].remove()
+        this.subtaskValue = document.querySelectorAll(".subtask")
 
     }
 
@@ -110,22 +124,19 @@ class InsertTask {
         this.noteObjectPublic.subtaskCount = document.querySelectorAll(".subtask").length
         NoteSubTask.textContent = `0 de ${this.noteObjectPublic.subtaskCount} subtask`
         note.insertAdjacentElement("beforeend", NoteSubTask)
-        this.factory(noteId.value, this.noteObjectPublic.title, this.noteObjectPublic.description, this.noteObjectPublic.subtaskCount)
-    }
-    GetSubtaskValue = () => {
-        this.subtaskValue.forEach((value, index) => {
-            console.log(value)
-        })
+        this.GetSubtaskValue()
+        this.factory(noteId.value, this.noteObjectPublic.title, this.noteObjectPublic.description, this.noteObjectPublic.subtaskValue, this.noteObjectPublic.subtaskCount)
     }
 
-    // }
 
-    factory = (noteId, title, description, quantiSubtask) => {
+
+
+    factory = (noteId, title, description, subtaskValue, quantiSubtask) => {
         let ObjectName = {}
-        ObjectName = { noteId, title, description, quantiSubtask }
+        ObjectName = { noteId, title, description, subtaskValue, quantiSubtask }
         this.allData.push(ObjectName)
-            // console.log(this.allData)
-            // console.log(this.noteObjectPublic)
+        console.log(this.allData)
+        console.log(this.noteObjectPublic)
     }
     start = () => {
         this.click()
