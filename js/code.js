@@ -1,8 +1,10 @@
 class NewTask {
-    constructor(modal, novaTask, closeModal) {
+    constructor(modal, novaTask, closeModal, infoModal) {
         this.modal = document.querySelector(modal)
         this.novaTask = document.querySelector(novaTask)
         this.closeModal = document.querySelector(closeModal)
+        this.infoModal = document.querySelector(infoModal)
+
     }
     bringModal = () => {
         this.novaTask.addEventListener('click', () => {
@@ -12,7 +14,9 @@ class NewTask {
     hideModal = () => {
         this.closeModal.addEventListener('click', () => {
             this.modal.classList.remove('active')
+            this.infoModal.classList.remove('active')
         })
+
     }
     start = () => {
         if (this.modal) {
@@ -21,5 +25,5 @@ class NewTask {
         }
     }
 }
-const AddNewTask = new NewTask('.modal', '.new', '.close')
+const AddNewTask = new NewTask('.modal', '.new', '.close', ".infoModal")
 AddNewTask.start()

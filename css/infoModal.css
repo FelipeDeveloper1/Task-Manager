@@ -17,6 +17,10 @@
     animation-duration: 400ms;
 }
 
+.active {
+    display: flex;
+}
+
 .setTitle {
     color: white;
     font-size: clamp(1rem, -1.5rem + 2.2vw, 3rem);

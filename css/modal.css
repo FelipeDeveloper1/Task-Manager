@@ -50,12 +50,12 @@
     margin-top: 5px;
 }
 
-.description {
+.modal_description {
     color: white;
     width: 80%;
 }
 
-.description>input {
+.modal_description>input {
     height: 11vh;
     width: 100%;
     border-radius: 8px;

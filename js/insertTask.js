@@ -1,10 +1,11 @@
 class InsertTask {
-    constructor(set, role, addSubTask, modal) {
+    constructor(set, role, addSubTask, modal, infoModal) {
         this.infoRequired = ['title', 'description']
         this.set = document.querySelector(set)
         this.role = document.querySelector(role)
         this.addSubTask = document.querySelector(addSubTask)
         this.modal = document.querySelector(modal)
+        this.infoModal = document.querySelector(infoModal)
         this.subtaskValue = []
         this.closeSub = []
         this.allData = []
@@ -19,6 +20,13 @@ class InsertTask {
         this.set.addEventListener('click', () => {
             this.setRole()
             this.modal.classList.remove('active')
+            this.notes = document.querySelectorAll(".note")
+            this.notes.forEach((value, index) => {
+                value.addEventListener("click", () => {
+                    this.showAllInfo(index)
+                })
+            })
+
 
         })
         this.addSubTask.addEventListener('click', () => {
@@ -28,8 +36,8 @@ class InsertTask {
                     this.deleteSubTask(index)
                 })
             })
-
         })
+
 
     }
 
@@ -116,7 +124,7 @@ class InsertTask {
         noteId.innerText = noteId.value
         noteId.classList = "id"
         this.noteObjectPublic.id = noteId.value
-        note.insertAdjacentElement("beforeend", noteId)
+            // note.insertAdjacentElement("beforeend", noteId)
 
 
         // adicionando a quantidade de subtask na nota
@@ -129,15 +137,25 @@ class InsertTask {
     }
 
 
-
-
     factory = (noteId, title, description, subtaskValue, quantiSubtask) => {
         let ObjectName = {}
         ObjectName = { noteId, title, description, subtaskValue, quantiSubtask }
         this.allData.push(ObjectName)
-        console.log(this.allData)
-        console.log(this.noteObjectPublic)
+            // console.log(this.allData)
     }
+
+    showAllInfo = (index) => {
+        this.infoModal.classList.add('active')
+        for (let value in this.noteObjectPublic) {
+            if (document.querySelector(`.${value}`)) {
+                document.querySelector(`.${value}`).innerText = this.noteObjectPublic[value]
+            }
+        }
+
+
+
+    }
+
     start = () => {
         this.click()
 
@@ -145,5 +163,5 @@ class InsertTask {
     }
 
 }
-const set = new InsertTask('.newTask', '.role', '.newSubTask', '.modal')
+const set = new InsertTask('.newTask', '.role', '.newSubTask', '.modal', '.infoModal')
 set.start()

@@ -11,6 +11,7 @@
     border-radius: 10px;
     color: white;
     font-size: clamp(1rem, -1.5rem + 2.1vw, 3rem);
+    cursor: pointer;
 }
 
 .note>p {

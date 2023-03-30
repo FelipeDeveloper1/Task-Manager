@@ -46,7 +46,7 @@ header {
     justify-content: space-between;
 }
 
-.title>p {
+.logo_title>p {
     font-size: clamp(1rem, -1.5rem + 8vw, 2rem);
     color: white;
     font-weight: 100;
