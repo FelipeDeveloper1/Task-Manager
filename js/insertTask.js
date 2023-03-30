@@ -44,8 +44,8 @@ class InsertTask {
     // setar o note em sua posição no documento 
 
     setRole = () => {
-        this.noteObjectPublic.role = this.role.options[this.role.selectedIndex].value
-        const local = document.querySelector(`.${this.noteObjectPublic.role}`)
+        this.noteObjectPublic.roleModal = this.role.options[this.role.selectedIndex].value
+        const local = document.querySelector(`.${this.noteObjectPublic.roleModal}`)
         this.CreateInsertNote(local)
     }
 
@@ -133,26 +133,27 @@ class InsertTask {
         NoteSubTask.textContent = `0 de ${this.noteObjectPublic.subtaskCount} subtask`
         note.insertAdjacentElement("beforeend", NoteSubTask)
         this.GetSubtaskValue()
-        this.factory(noteId.value, this.noteObjectPublic.title, this.noteObjectPublic.description, this.noteObjectPublic.subtaskValue, this.noteObjectPublic.subtaskCount)
+        this.factory(noteId.value, this.noteObjectPublic.title, this.noteObjectPublic.description, this.noteObjectPublic.subtaskValue, this.noteObjectPublic.subtaskCount, this.noteObjectPublic.roleModal)
     }
 
 
-    factory = (noteId, title, description, subtaskValue, quantiSubtask) => {
+    factory = (noteId, title, description, subtaskValue, quantiSubtask, roleModal) => {
         let ObjectName = {}
-        ObjectName = { noteId, title, description, subtaskValue, quantiSubtask }
+        ObjectName = { noteId, title, description, subtaskValue, quantiSubtask, roleModal }
         this.allData.push(ObjectName)
             // console.log(this.allData)
     }
 
     showAllInfo = (index) => {
-        this.infoModal.classList.add('active')
-        for (let value in this.noteObjectPublic) {
+        let dataRequest = this.allData[index]
+        for (let value in dataRequest) {
             if (document.querySelector(`.${value}`)) {
-                document.querySelector(`.${value}`).innerText = this.noteObjectPublic[value]
+                document.querySelector(`.${value}`).innerText = dataRequest[value]
+                console.log(dataRequest)
             }
         }
-
-
+        this.infoModal.classList.add('active')
+        this.modal.classList.remove('active')
 
     }
 
