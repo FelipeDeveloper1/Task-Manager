@@ -38,3 +38,7 @@
 .setStatus>select {
     height: 4.5vh;
 }
+
+.closeInfoModal {
+    cursor: pointer;
+}

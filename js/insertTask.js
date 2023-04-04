@@ -24,6 +24,7 @@ class InsertTask {
             this.notes.forEach((value, index) => {
                 value.addEventListener("click", () => {
                     this.showAllInfo(index)
+                    console.log(index)
                 })
             })
 
@@ -146,10 +147,10 @@ class InsertTask {
 
     showAllInfo = (index) => {
         let dataRequest = this.allData[index]
+        console.log(dataRequest)
         for (let value in dataRequest) {
             if (document.querySelector(`.${value}`)) {
                 document.querySelector(`.${value}`).innerText = dataRequest[value]
-                console.log(dataRequest)
             }
         }
         this.infoModal.classList.add('active')
