@@ -24,11 +24,8 @@ class InsertTask {
             this.notes.forEach((value, index) => {
                 value.addEventListener("click", () => {
                     this.showAllInfo(index)
-                    console.log(index)
                 })
             })
-
-
         })
         this.addSubTask.addEventListener('click', () => {
             this.Addsubtask()
@@ -125,7 +122,8 @@ class InsertTask {
         noteId.innerText = noteId.value
         noteId.classList = "id"
         this.noteObjectPublic.id = noteId.value
-            // note.insertAdjacentElement("beforeend", noteId)
+
+        // note.insertAdjacentElement("beforeend", noteId)
 
 
         // adicionando a quantidade de subtask na nota
@@ -144,14 +142,41 @@ class InsertTask {
         this.allData.push(ObjectName)
             // console.log(this.allData)
     }
+    showSubstasks = (value) => {
+        // criando suas divs
 
+        const SubtaskInfo = document.querySelector('.SubTaskInfo')
+        const infoSubs = document.createElement('div')
+        const subCheckBox = document.createElement('input')
+        const valuesSub = document.createElement("p")
+
+        // inserindo valores  
+        valuesSub.innerText = value
+        subCheckBox.type = "checkbox"
+
+        // inserindo as suas classes
+        infoSubs.classList = "infoSubs"
+        valuesSub.classList = 'valuesSub'
+
+
+        // inserindo na div principal
+        infoSubs.insertAdjacentElement("beforeend", subCheckBox)
+        infoSubs.insertAdjacentElement("beforeend", valuesSub)
+        SubtaskInfo.insertAdjacentElement('beforeend', infoSubs)
+    }
     showAllInfo = (index) => {
         let dataRequest = this.allData[index]
         console.log(dataRequest)
+
         for (let value in dataRequest) {
             if (document.querySelector(`.${value}`)) {
                 document.querySelector(`.${value}`).innerText = dataRequest[value]
             }
+        }
+        if (dataRequest.subtaskValue.length > 0) {
+            dataRequest.subtaskValue.forEach((value, index) => {
+                this.showSubstasks(value)
+            })
         }
         this.infoModal.classList.add('active')
         this.modal.classList.remove('active')

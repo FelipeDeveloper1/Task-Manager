@@ -1,7 +1,6 @@
 .infoModal {
     display: none;
     flex-direction: column;
-    align-items: center;
     position: absolute;
     top: 55%;
     left: 50%;
@@ -20,25 +19,74 @@
     display: flex;
 }
 
+.closeInfoModal {
+    cursor: pointer;
+}
+
 .setTitle {
+    justify-content: space-between;
+    display: flex;
     color: white;
-    font-size: clamp(1rem, -1.5rem + 2.2vw, 3rem);
+    font-size: clamp(1.3rem, -1.5rem + 3vw, 3rem);
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: tomato;
+    font-weight: bolder;
 }
 
 .setDescription {
     margin-top: 2vh;
+    height: auto;
+    color: gray;
 }
 
 .setStatus {
     width: 100%;
+    margin-top: auto;
 }
 
 .setStatus>select {
     height: 4.5vh;
 }
 
-.closeInfoModal {
-    cursor: pointer;
+.setSubtasks {
+    color: white;
+    display: flex;
+    margin-right: 2px;
+    margin-top: 2vh;
+    font-size: clamp(0.8rem, -1.5rem + 2vw, 2rem);
+}
+
+.setSubtasks>p {
+    margin-right: 3px;
+}
+
+.status_infoModal {
+    display: flex;
+}
+
+.status_infoModal>p {
+    margin-right: 0.5vw;
+}
+
+.SubTaskInfo {
+    width: 100%;
+    height: 10vh;
+}
+
+.infoSubs {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 4vh;
+    background-color: #21212D;
+    border-radius: 5px;
+    margin-top: 1vh;
+}
+
+.infoSubs>p {
+    margin-left: 1vw;
+    color: white;
+}
+
+.checked {
+    opacity: 0.8;
 }
