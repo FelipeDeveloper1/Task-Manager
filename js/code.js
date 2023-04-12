@@ -16,12 +16,18 @@ class NewTask {
     hideModal = () => {
         this.closeModal.addEventListener('click', () => {
             this.modal.classList.remove('active')
-        })
+        })  
         this.closeInfoModal.addEventListener('click', () => {
             this.infoModal.classList.remove('active')
-
+            this.hideSubtasks()
         })
 
+    }
+    hideSubtasks = () => {
+        const infoSubs = document.querySelectorAll('.infoSubs')
+        infoSubs.forEach((value) => {
+            value.remove()
+        })
     }
     start = () => {
         if (this.modal) {
