@@ -26,6 +26,7 @@ class InsertTask {
                     this.showAllInfo(index)
                 })
             })
+            this.clearForm()
         })
         this.addSubTask.addEventListener('click', () => {
             this.Addsubtask()
@@ -166,7 +167,7 @@ class InsertTask {
     }
     showAllInfo = (index) => {
         let dataRequest = this.allData[index]
-        console.log(dataRequest)
+            // console.log(dataRequest)
 
         for (let value in dataRequest) {
             if (document.querySelector(`.${value}`)) {
@@ -182,7 +183,13 @@ class InsertTask {
         this.modal.classList.remove('active')
 
     }
-
+    clearForm = () => {
+        document.querySelector("#title").value = ''
+        document.querySelector("#description").value = ''
+        document.querySelectorAll('.subtask').forEach((data) => {
+            data.value = ''
+        })
+    }
     start = () => {
         this.click()
 

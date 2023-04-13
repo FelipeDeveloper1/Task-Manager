@@ -16,7 +16,7 @@ class NewTask {
     hideModal = () => {
         this.closeModal.addEventListener('click', () => {
             this.modal.classList.remove('active')
-        })  
+        })
         this.closeInfoModal.addEventListener('click', () => {
             this.infoModal.classList.remove('active')
             this.hideSubtasks()
