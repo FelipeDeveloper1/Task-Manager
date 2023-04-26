@@ -11,6 +11,7 @@ class InsertTask {
         this.allData = []
         this.noteObjectPublic = {}
         this.subtaskValue = document.querySelectorAll(".subtask")
+        this.notes = []
 
 
 
@@ -21,26 +22,44 @@ class InsertTask {
             this.setRole()
             this.modal.classList.remove('active')
             this.notes = document.querySelectorAll(".note")
-            this.notes.forEach((value, index) => {
-                value.addEventListener("click", () => {
-                    this.showAllInfo(index)
-                })
-            })
+                // this.notes.forEach((value, index) => {
+                //     value.addEventListener("click", (index) => {
+                //         // this.showAllInfo(index)
+                //         console.log(index[0])
+                //     })
+                // })
+            if (this.notes.length > 0) {
+                this.CountNotes()
+            }
+
             this.clearForm()
         })
         this.addSubTask.addEventListener('click', () => {
-            this.Addsubtask()
-            this.closeSub.forEach((value, index) => {
-                value.addEventListener('click', () => {
-                    this.deleteSubTask(index)
+                this.Addsubtask()
+                this.closeSub.forEach((value, index) => {
+                    value.addEventListener('click', () => {
+                        this.deleteSubTask(index)
+                    })
                 })
             })
-        })
+            // if(document.querySelectorAll('.notes'))
+            // this.notes.forEach((value, index) => {
+
+        // })
+
 
 
     }
-
-    // setar o note em sua posição no documento 
+    CountNotes = () => {
+            this.notes.forEach((value, index) => {
+                value.addEventListener('click', () => {
+                    value.forEach((value) => {
+                        console.log(value)
+                    })
+                })
+            })
+        }
+        // setar o note em sua posição no documento 
 
     setRole = () => {
         this.noteObjectPublic.roleModal = this.role.options[this.role.selectedIndex].value
@@ -90,7 +109,7 @@ class InsertTask {
         })
     }
 
-    // deletnado as substasks  
+    // deletando as substasks  
 
     deleteSubTask = (valor) => {
         this.quantiSubTask[valor].remove()
@@ -192,6 +211,9 @@ class InsertTask {
     }
     start = () => {
         this.click()
+            // setInterval(() => {
+            //     this.CountNotes()
+            // }, 1000)
 
 
     }

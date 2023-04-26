@@ -73,23 +73,46 @@ header {
     display: flex;
     width: 100%;
     margin-top: 5vh;
+    margin-left: 2vw;
 }
 
 .status_name>p {
     margin-left: 1vw;
+    letter-spacing: 3px;
+    opacity: 0.5;
 }
 
 .status>div {
     height: 100%;
     width: 20vw;
-    border-right: 1px solid white;
 }
 
 .status_name {
     display: flex;
+    align-items: center;
     color: white;
 }
 
 .contagem {
     margin-left: 0.5vw;
+}
+
+.circle {
+    width: 16px;
+    height: 16px;
+    margin-left: 2vh;
+    background-color: white;
+    border-radius: 100%;
+}
+
+.todo_circle {
+    background-color: aquamarine;
+}
+
+.doing_circle {
+    background-color: #746FC9;
+}
+
+.done_circle {
+    background-color: rgb(32, 163, 163);
 }
